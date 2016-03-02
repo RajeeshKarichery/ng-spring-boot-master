@@ -3,3 +3,7 @@
 .settings/
 target/
 bower_components/
+ng-spring-boot
+ng-spring-boot
+ng-spring-boot.iml
+.idea/
