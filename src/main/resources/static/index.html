@@ -1,48 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="./bower_components/bootstrap-css-only/css/bootstrap.min.css" />
-  </head>
-  <body ng-app="myApp">
-    <div class="container" ng-controller="AppController">
-      <div class="page-header">
-      
-        <!--  -<h1>A checklist</h1>-->
-        
-      </div>
-      <div class="alert alert-info" role="alert" ng-hide="items &amp;&amp; items.length > 0">
-        There are no items yet.
-      </div>
-      <form class="form-horizontal" role="form" ng-submit="addItem(newItem)">
-        <div class="form-group" ng-repeat="item in items">
-          <div class="checkbox col-xs-9">
-            <label>
-              <input type="checkbox" ng-model="item.checked" ng-change="updateItem(item)"/> {{item.description}}
-            </label>
-          </div>
-          <div class="col-xs-3">
-            <button class="pull-right btn btn-danger" type="button" title="Delete"
-              ng-click="deleteItem(item)">
-              <span class="glyphicon glyphicon-trash"></span>
-            </button>
-          </div>
-        </div>
-        <hr />
-        <div class="input-group">
-          <input type="text" class="form-control" ng-model="newItem" placeholder="Enter the description..." />
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="submit" ng-disabled="!newItem" title="Add">
-              <span class="glyphicon glyphicon-plus"></span>
-            </button>
-          </span>
-        </div>
-      </form>
-    </div>
+    <!--  <link rel="stylesheet" href="./bower_components/bootstrap-css-only/css/bootstrap.min.css" />-->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/angular-material/0.11.4/angular-material.css' />
+    <link rel='stylesheet' href='./app/css/custom.css' />
+     
     <script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="./bower_components/angular-resource/angular-resource.min.js"></script>
     <script type="text/javascript" src="./bower_components/lodash/dist/lodash.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/0.11.4/angular-material.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular-animate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular-aria.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular-messages.js"></script>     
+    
+    <script type="text/javascript"  src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
     <script type="text/javascript" src="./app/app.js"></script>
-    <script type="text/javascript" src="./app/controllers.js"></script>
-    <script type="text/javascript" src="./app/services.js"></script>
+    <script type="text/javascript" src="./app/controllers/MainController.js"></script>
+    <script type="text/javascript" src="./app/controllers/ItemController.js"></script>
+    <script type="text/javascript" src="./app/controllers/UserController.js"></script>
+    <script type="text/javascript" src="./app/services.js"></script>    
+  </head>  
+  
+    
+  <body ng-app="myApp">
+    <div ng-controller="MainController">      
+     	<div style="width:100%"  ng-cloak="">
+        <md-content>      
+            <md-toolbar class='md-tall' style="background-color:#E1BEE7">
+              <div class="md-toolbar-tools">
+                <md-button class="md-icon-button" aria-label="Settings">
+                  <md-icon ng-show="isShowMenuItem" md-svg-icon="app/assets/ic_menu_white_24px.svg"></md-icon>
+                </md-button>    
+                
+                 <span ng-show="isShowMenuItem">
+                  	 <h2 class="md-toolbar-tools"> 
+                  	 	<a href="#/home" >Home</a>
+                  	 </h2>
+                  </span>            
+                  
+                  <span ng-show="isShowMenuItem">
+                  	 <h2 class="md-toolbar-tools"> 
+                  	 	<a href="#/item" >Item</a>
+                  	 </h2>
+                  </span>
+                  
+                   <span ng-show="isShowMenuItem">
+                  	 <h2 class="md-toolbar-tools"> 
+                  	 	<a href="#/user" >User</a>
+                  	 </h2>
+                  </span>
+                
+                <span flex=""></span>                            
+                <md-button ng-show="isShowMenuItem" class="md-icon-button" aria-label="Favorite" >
+                 	<md-icon md-svg-icon="app/assets/ic_exit_to_app_white_24px.svg" style="color: greenyellow;"></md-icon>
+                </md-button>
+              
+              </div>
+            </md-toolbar>
+        </md-content>
+    </div>
+    
+    
+    <div id="content" ui-view="" flex=""> 
+    </div>	
+    
+    
   </body>
 </html>
