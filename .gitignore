@@ -1,12 +1,4 @@
-.idea/workspace.xml
-.idea/.name
-.idea/encodings.xml
-.idea/misc.xml
-.idea/modules.xml
-.idea/vcs.xml
-.idea/copyright/profiles_settings.xml
-.idea/libraries/*
-
+.idea/
 .idea/compiler.xml
 ng-spring-boot.iml
 .project
