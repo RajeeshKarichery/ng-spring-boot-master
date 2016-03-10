@@ -2,6 +2,7 @@ package be.g00glen00b.controller;
 
 import java.util.List;
 
+//import org.atmosphere.cpr.AtmosphereResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,7 +21,29 @@ public class UserController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	  public List<User> findItems() {
-	   	  return (List<User>) repo.findAll();
+
+
+		/*AtmosphereResource resource = (AtmosphereResource) request.getAttribute(ApplicationConfig.ATMOSPHERE_RESOURCE);
+
+		//suspending resource to keep connection
+		resource.suspend();
+
+		//find broadcaster, second parameter says to create broadcaster if it doesn't exist
+		Broadcaster broadcaster = BroadcasterFactory.getDefault().lookup(userId,true);
+
+		//saving resource for notifications
+		broadcaster.addAtmosphereResource(resource);
+
+		long nCount = notificationService.countNewPopup(new Long(userId));
+		List<Notification> notifications = notificationService.findMostRecentPopup(new Long(userId));
+		List<String> response = new ArrayList<String>();
+		response.add(""+nCount);
+		for (Notification n:notifications) {
+			response.add(n.getMessage());
+		}
+		return response;*/
+
+		return (List<User>) repo.findAll();
 	  }
 	  
 	  @RequestMapping(method = RequestMethod.POST)
