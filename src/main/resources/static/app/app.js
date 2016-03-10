@@ -1,4 +1,3 @@
-//var app = angular.module("myApp", ['ngResource','ui.router','ngMaterial','ngMessages','angular.atmosphere']);
 var app = angular.module("myApp", ['ngResource','ui.router','ngMaterial','ngMessages']);
 app.config(function($stateProvider, $urlRouterProvider) {    
 $urlRouterProvider.otherwise('/home');
@@ -14,11 +13,6 @@ $urlRouterProvider.otherwise('/home');
 	        templateUrl: 'app/views/user.html',
 	        controller:'UserController'
 	    })
-		.state('score', {
-			url: '/score',
-			templateUrl: 'app/views/score.html'
-			//,controller:'ScoreController'
-		})
 		.state('server', {
 			url: '/server',
 			templateUrl: 'app/views/server.html',
