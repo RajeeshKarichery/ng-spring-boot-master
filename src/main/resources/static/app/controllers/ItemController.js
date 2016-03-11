@@ -1,6 +1,7 @@
  var ItemController = function($scope, Item1,$mdDialog) {	 	
 		Item1.query(function(response) {
 	      $scope.items = response ? response : [];
+			console.log("::---------item ="+response);
 	    });
 	    
 	    $scope.addItem = function(description) {
